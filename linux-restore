@@ -20,6 +20,7 @@ function ln_bak {
 	dst=$2
 	# backup current file if exists
 	if [ -e $dst ]; then
+		rm -rf $dst.bak
 		mv $dst $dst.bak
 	fi
 
