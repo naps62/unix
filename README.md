@@ -6,10 +6,10 @@ Utility to restore my linux environments after a fresh install
 
 - **linux-restore**: main script
 - **files**
-	**rc**: all ~/*.rc files
-	**ssh**: ~/.ssh dir. private key not included
-	**vim**: ~/.vim dir.
+	- **rc**: all ~/*.rc files
+	- **ssh**: ~/.ssh dir. private key not included
+	- **vim**: ~/.vim dir.
 - **machines**
-	**default**
-	**rasp62**
-	**SeARCH**
+	- **default**
+	- **rasp62**
+	- **SeARCH**
