@@ -59,7 +59,7 @@ unset color_prompt force_color_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-	COLORS_FILE=~/.myconfig/rc/bash.dircolors
+	COLORS_FILE=$NAPS62_RCDIR/bash.dircolors
     test -r $COLORS_FILE && eval "$(dircolors -b $COLORS_FILE)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     #alias dir='dir --color=auto'

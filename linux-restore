@@ -112,7 +112,7 @@ ln_bak $myconfig/files/rc/bashrc $home/.bashrc
 log "   .vimrc"
 ĺn_bak $myconfig/files/rc/vimrc $home/.vimrc
 
-log "  .vim/"
+log "   .vim/"
 ln_bak $myconfig/files/vim $home/.vim
 
 log "   .bin/"
