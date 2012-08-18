@@ -1,0 +1,50 @@
+Host rasp62
+	Hostname rasp62
+
+Host raspberry
+	Hostname rasp62.dyndns.org
+
+#
+# Clusters
+#
+Host search
+	Hostname search.di.uminho.pt
+	User cpd19808
+
+Host longhorn
+	Hostname longhorn.tacc.utexas.edu
+	User pg19808
+
+
+# CeSIUM machines
+Host cesium
+	Hostname cesium.di.uminho.pt
+	User root
+
+Host cesiumstaff
+	Hostname cesium.di.uminho.pt
+	User root
+	Port 23
+
+Host caos
+	Hostname caos.di.uminho.pt
+	User naps62
+
+Host caos2
+	Hostname caos2.di.uminho.pt
+	User naps62
+Host caos2socios
+	Hostname caos2.di.uminho.pt
+	User naps62
+	Port 20
+Host caos2staff
+	Hostname caos2.di.uminho.pt
+	User naps62
+	Port 21
+
+#
+# UM remotes
+#
+Host a54767
+	Hostname ssh.alunos.di.uminho.pt
+	User a54767

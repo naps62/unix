@@ -114,4 +114,4 @@ chmod 644 $home/.ssh/id_rsa.pub
 ### machine custom script                       ###
 ###################################################
 
-$machine/install.sh
+. $machine/install.sh

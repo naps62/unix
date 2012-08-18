@@ -1,0 +1,6 @@
+# ssh private key
+files/ssh/id_rsa
+
+# vim tmp files
+files/vim/undo
+files/vim/backup
