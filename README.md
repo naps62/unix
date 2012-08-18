@@ -10,6 +10,6 @@ Utility to restore my linux environments after a fresh install
 	- **ssh**: ~/.ssh dir. private key not included
 	- **vim**: ~/.vim dir.
 - **machines**
-	- **default**
-	- **rasp62**
-	- **SeARCH**
+	- **default**: used on my laptop
+	- **rasp62**: my Raspberry Pi web server
+	- **SeARCH**: cluster @ UMinho
