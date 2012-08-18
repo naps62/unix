@@ -11,7 +11,7 @@ function die {
 
 # currently just an alias to `echo`
 function log {
-	echo $@
+	echo "$@"
 }
 
 # creates a symlink backing up original dest file if it exists
@@ -94,14 +94,14 @@ log "installing..."
 # creates ~/.naps62rc
 # this file is machine dependent and is not intended to be changed
 # so there is no problem in generating it instead of hard-creating
-log "   creating env file .naps62rc"
+log "   .naps62rc"
 ln_bak $myconfig/files/rc/naps62rc.template $myrc
-sed -i "s,<configdir>,$myconfig,"     $myrc
-sed -i "s,<rcdir>,$myconfig/files/rc" $myrc
-sed -i "s,<machine>,$machine_name,"   $myrc
-sed -i "s,<machinedir>,$machine,"     $myrc
+sed -i "s,<configdir>,$myconfig,"      $myrc
+sed -i "s,<rcdir>,$myconfig/files/rc," $myrc
+sed -i "s,<machine>,$machine_name,"    $myrc
+sed -i "s,<machinedir>,$machine,"      $myrc
 
-log "   bashrc"
+log "   .bashrc"
 ln_bak $myconfig/files/rc/bashrc $home/.bashrc
 
 
@@ -109,22 +109,23 @@ ln_bak $myconfig/files/rc/bashrc $home/.bashrc
 ### sym links                                   ###
 ###################################################
 
-log "   vimrc"
+log "   .vimrc"
 ĺn_bak $myconfig/files/rc/vimrc $home/.vimrc
 
-log "  .vim dir"
+log "  .vim/"
 ln_bak $myconfig/files/vim $home/.vim
 
-log "   .bin dir"
+log "   .bin/"
 ln_bak $myconfig/files/bin $home/.bin
 
-log "   .ssh dir"
+log "   .ssh/"
 ln_bak $myconfig/files/ssh $home/.ssh
 
 # fix ssh dir permissions
 chmod 700 $home/.ssh
 chmod 644 $home/.ssh/id_rsa.pub
 
+die
 ###################################################
 ### machine custom script                       ###
 ###################################################
