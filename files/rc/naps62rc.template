@@ -1,0 +1,10 @@
+# Auto generated. Do not edit
+
+# this section is to be sed'ed
+# replacing each <placeholder> with the right value
+export NAPS62_CONFIGDIR=<configdir>
+export NAPS62_MACHINE=<machine>
+export NAPS62_MACHINEDIR=<machinedir>
+
+# add ~/.bin to PATH
+export PATH=$HOME/.bin:$PATH

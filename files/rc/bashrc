@@ -8,6 +8,9 @@
 # bash_default has the commands from the default bashrc (taken from Mint Katya)
 . ~/.myconfig/rc/bash_default
 
+# my custom env settings
+. ~/.naps62rc
+
 ###################################################
 ### aliases                                     ###
 ###################################################
@@ -35,7 +38,7 @@ CC=clang
 CXX=clang
 export CC CXX
 
-PATH=~/bin:./:/usr/local/cuda/bin:$PATH
+PATH=~/.bin:./:/usr/local/cuda/bin:$PATH
 LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/papi/lib:$LD_LIBRARY_PATH
 CUDASDK_DIR=~/.NVIDIA_GPU_Computing_SDK
 

@@ -44,6 +44,7 @@ function op_ask {
 	fi
 }
 
+
 ###################################################
 ### Initial Setup                               ###
 ###################################################
@@ -64,6 +65,9 @@ home="/home/$user"
 config="$home/.config"
 myconfig="$config/linux-restore"
 machine="$myconfig/machines/$machine_name"
+
+# custom rc file
+myrc="$home/.naps62rc"
 
 # absolute path to this script
 abspath="$(cd "${0%/*}" 2>/dev/null; echo "$PWD")"
@@ -87,24 +91,34 @@ log "installing..."
 ### rc installation                             ###
 ###################################################
 
-log "   bashrc"
-ln_bak $myconfig/rc/bashrc $home/.bashrc
+# creates ~/.naps62rc
+# this file is machine dependent and is not intended to be changed
+# so there is no problem in generating it instead of hard-creating
+log "   creating env file .naps62rc"
+ln_bak $myconfig/files/rc/naps62rc.template $myrc
+sed -i "s/<configdir>/$myconfig/"   $myrc
+sed -i "s/<machine>/$machine_name/" $myrc
+sed -i "s/<machinedir>/$machine/"   $myrc
 
-log "   vimrc"
-ĺn_bak $myconfig/rc/vimrc $home/.vimrc
+log "   bashrc"
+ln_bak $myconfig/files/rc/bashrc $home/.bashrc
+
 
 ###################################################
 ### sym links                                   ###
 ###################################################
 
+log "   vimrc"
+ĺn_bak $myconfig/files/rc/vimrc $home/.vimrc
+
 log "  .vim dir"
-ln_bak $myconfig/misc/vim $home/.vim
+ln_bak $myconfig/files/vim $home/.vim
 
 log "   .bin dir"
-ln_bak $machine/bin $home/.bin
+ln_bak $myconfig/files/bin $home/.bin
 
 log "   .ssh dir"
-ln_bak $myconfig/ssh $home/.ssh
+ln_bak $myconfig/files/ssh $home/.ssh
 
 # fix ssh dir permissions
 chmod 700 $home/.ssh
