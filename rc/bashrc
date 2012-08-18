@@ -1,0 +1,91 @@
+# my bashrc
+# assumes:
+#    ~/.bashrc -> ~/projects/scripts/linux_home/bashrc
+#
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# bash_default has the commands from the default bashrc (taken from Mint Katya)
+. ~/.myconfig/rc/bash_default
+
+###################################################
+### aliases                                     ###
+###################################################
+
+alias reboot='sudo reboot'
+alias halt='sudo poweroff'
+
+alias apt='sudo aptitude'
+
+# git aliases
+alias gst='git status'
+alias gpl='git pull'
+alias gps='git push'
+alias gcm='git commit'
+
+# bash aliases
+alias ..='cd ..'
+
+###################################################
+### PATH                                        ###
+###################################################
+
+# set clang as default C/C++ compiler
+CC=clang
+CXX=clang
+export CC CXX
+
+PATH=~/bin:./:/usr/local/cuda/bin:$PATH
+LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/papi/lib:$LD_LIBRARY_PATH
+CUDASDK_DIR=~/.NVIDIA_GPU_Computing_SDK
+
+export	PATH \
+		LD_LIBRARY_PATH \
+		CUDASDK_DIR
+
+# TODO remover depois da BIC
+#export PATH=~/projects/pi/fv_bic/bin:$PATH
+#export PATH=~/projects/pi/fv_cuda/bin:$PATH
+#export PATH=~/projects/pi/fv_bic/scripts:$PATH
+
+export PATH=$HOME/node_modules/.bin/lessc:$PATH
+
+###################################################
+### RVM                                         ###
+###################################################
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+###################################################
+### PS1 PROMPT                                  ###
+###################################################
+# green for remote hosts (ssh). Need to be manually defined
+# blue for my own terminal
+
+case `hostname` in
+	caos.di.uminho.pt|cat.cesium|socios.cesium|staff.cesium|search.di.uminho.pt)
+		COLOR_NAME='\[\033[01;32m\]'   # Green
+		COLOR_DIR='\[\033[01;34m\]'    # Blue
+		COLOR_PROMPT='\[\033[01;32m\]' # Green
+		COLOR_CMD='\[\033[00m\]'       # White
+		NAME="\u@\h "
+		DIR="\W "
+		PROMPT="\$ "
+		;;
+
+	*)
+		COLOR_NAME='\[\033[01;34m\]'   # Blue
+		COLOR_DIR='\[\033[01;34m\]'    # Blue
+		COLOR_PROMPT='\[\033[01;34m\]' # Green
+		COLOR_CMD='\[\033[00m\]'       # White
+		NAME="\u "
+		DIR="\W "
+		PROMPT="\$ "
+		;;
+
+esac
+
+PS1='${debian_chroot:+($debian_chroot)}'
+PS1=${PS1}${COLOR_NAME}${NAME}${COLOR_DIR}${DIR}${COLOR_PROMPT}${PROMPT}${COLOR_CMD}
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
