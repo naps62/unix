@@ -16,15 +16,15 @@ function log {
 
 # creates a symlink backing up original dest file if it exists
 function ln_bak {
-	ln_source=$1
-	ln_dest=$2
+	src=$1
+	dst=$2
 	# backup current file if exists
-	if [ -e $ln_dest ]
-		mv $ln_dest $ln_dest.ln_bak
+	if [ -e $dst ]; then
+		mv $dst $dst.bak
 	fi
 
 	# create link
-	ln -s $ln_src $ln_dst
+	ln -s $src $dst
 }
 
 # asks for confirmation on a task. executes function if positive
