@@ -96,9 +96,10 @@ log "installing..."
 # so there is no problem in generating it instead of hard-creating
 log "   creating env file .naps62rc"
 ln_bak $myconfig/files/rc/naps62rc.template $myrc
-sed -i "s/<configdir>/$myconfig/"   $myrc
-sed -i "s/<machine>/$machine_name/" $myrc
-sed -i "s/<machinedir>/$machine/"   $myrc
+sed -i "s,<configdir>,$myconfig,"     $myrc
+sed -i "s,<rcdir>,$myconfig/files/rc" $myrc
+sed -i "s,<machine>,$machine_name,"   $myrc
+sed -i "s,<machinedir>,$machine,"     $myrc
 
 log "   bashrc"
 ln_bak $myconfig/files/rc/bashrc $home/.bashrc
