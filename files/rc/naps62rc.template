@@ -1,11 +1,45 @@
 # Auto generated. Do not edit
 
 # this section is to be sed'ed
-# replacing each <placeholder> with the right value
-export NAPS62_CONFIGDIR=<configdir>
-export NAPS62_RCDIR=<rcdir>
-export NAPS62_MACHINE=<machine>
-export NAPS62_MACHINEDIR=<machinedir>
+# adding for each var the desired value
+export NAPS62_CONFIGDIR
+export NAPS62_RCDIR
+export NAPS62_MACHINE
+export NAPS62_MACHINEDIR
 
 # add ~/.bin to PATH
 export PATH=$HOME/.bin:$PATH
+
+#
+# bash colors
+#
+#PS1_COLOR_NAME
+#PS1_COLOR_DIR
+#PS1_COLOR_PROMPT
+#PS1_COLOR_CMD
+#PS1_NAME
+#PS1_DIR
+#PS1_PROMPT
+
+#PS1_COLOR_NAME='\[\033[01;34m\]'   # Blue
+#PS1_COLOR_DIR='\[\033[01;34m\]'    # Blue
+#PS1_COLOR_PROMPT='\[\033[01;34m\]' # Green
+#PS1_COLOR_CMD='\[\033[00m\]'       # White
+#PS1_NAME="\u "
+#PS1_DIR="\W "
+#PS1_PROMPT="\$ "
+
+#
+# bash prompt
+#
+PS1='${debian_chroot:+($debian_chroot)}'
+PS1=${PS1}${PS1_COLOR_NAME}${PS1_NAME}${PS1_COLOR_DIR}${PS1_DIR}${PS1_COLOR_PROMPT}${PS1_PROMPT}${PS1_COLOR_CMD}
+
+#
+# from this point, settings are commented out by default
+# and may be activated by a machine-specific install.sh
+#
+
+# additional env settings
+#export CC
+#export CXX

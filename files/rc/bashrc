@@ -8,6 +8,9 @@
 # my custom env settings
 . ~/.naps62rc
 
+# machine-specific settings
+. $NAPS62_MACHINEDIR/bashrc
+
 # bash_default has the commands from the default bashrc (taken from Mint Katya)
 . $NAPS62_RCDIR/bash_default
 

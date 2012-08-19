@@ -4,6 +4,18 @@
 ### helper functions                            ###
 ###################################################
 
+function usage {
+	cat <<EOF
+linux-restore [-m <machine-name>] [-c] [-y]
+
+   -m <machine-name> machine config to use. defaults to "default"
+   -y skip confirmations
+   -b backup every replaced file
+   -h show this
+EOF
+	
+}
+
 function die {
     echo >&2 "$@"
     exit 1
@@ -21,7 +33,11 @@ function ln_bak {
 	# backup current file if exists
 	if [ -e $dst ]; then
 		rm -rf $dst.bak
-		mv $dst $dst.bak
+		if ! $clean; then
+			mv $dst $dst.bak
+		else
+			rm -rf $dst
+		fi
 	fi
 
 	# create link
@@ -33,17 +49,88 @@ function op_ask {
 	prompt=$1
 	function=$2
 
-	# read arg
-	op="dummy"
-	until [[ $op =~ ^[yYnN]$ ]]; do
-		read -p "$1 [y/n] " op
-	done
+	yes=false
 
-	# check confirmation and exec function
-	if [[ $op =~ ^[yY]$ ]]; then
+	if ! $force_yes; then
+		# read arg
+		op="dummy"
+		until [[ $op =~ ^[yYnN]$ ]]; do
+			read -p "$1 [y/n] " op
+		done
+
+		# check confirmation and exec function
+		if [[ $op =~ ^[yY]$ ]]; then
+			$function
+		fi
+	else
+		yes=true
+	fi
+
+	if $yes; then
 		$function
 	fi
 }
+
+# receives 4 args
+# VAR, placeholder, value, file
+# uncomments export for VAR on file
+# repaces placeholder by value
+function set_env {
+	var=$1
+	val=$2
+
+	# file is $myrc by default, or $3 if provided
+	file=$myrc
+	[ $# -eq 2 ] || file=$3
+
+	sed -i "s,^#\?\(export $var\)$,\1=${val//\\/\\\\}," $file
+}
+
+# same as set_env, but for non exported variables
+function set_not_env {
+	var=$1
+	val=$2
+
+	# file is $myrc by default, or $3 if provided
+	file=$myrc
+	[ $# -eq 2 ] || file=$3
+
+	sed -i "s,^#\?\($var\)$,\1=${val//\\/\\\\}," $file	
+}
+
+
+###################################################
+### Parse Args                                  ###
+###################################################
+
+# argument string for getopts
+opts="hm:by"
+
+machine_name="default"
+force_yes=false
+clean=true
+
+while getopts $opts option; do
+	case $option in
+		m)
+			machine_name=$OPTARG
+			;;
+		by)
+			clean=false
+			;;
+		y)
+			force_yes=true
+			;;
+		h)
+			usage
+			exit
+			;;
+		?)
+			usage
+			die "error: invalid argument $OPTARG"
+			;;
+	esac
+done
 
 
 ###################################################
@@ -97,10 +184,14 @@ log "installing..."
 # so there is no problem in generating it instead of hard-creating
 log "   .naps62rc"
 ln_bak $myconfig/files/rc/naps62rc.template $myrc
-sed -i "s,<configdir>,$myconfig,"      $myrc
-sed -i "s,<rcdir>,$myconfig/files/rc," $myrc
-sed -i "s,<machine>,$machine_name,"    $myrc
-sed -i "s,<machinedir>,$machine,"      $myrc
+set_env 'NAPS62_CONFIGDIR'  "$myconfig"          
+set_env 'NAPS62_RCDIR'      "$myconfig/files/rc" 
+set_env 'NAPS62_MACHINE'    "$machine_name"      
+set_env 'NAPS62_MACHINEDIR' "$machine"           
+#sed -i "s,<configdir>,$myconfig,"      $myrc
+#sed -i "s,<rcdir>,$myconfig/files/rc," $myrc
+#sed -i "s,<machine>,$machine_name,"    $myrc
+#sed -i "s,<machinedir>,$machine,"      $myrc
 
 log "   .bashrc"
 ln_bak $myconfig/files/rc/bashrc $home/.bashrc
@@ -111,7 +202,7 @@ ln_bak $myconfig/files/rc/bashrc $home/.bashrc
 ###################################################
 
 log "   .vimrc"
-ĺn_bak $myconfig/files/rc/vimrc $home/.vimrc
+ln_bak $myconfig/files/rc/vimrc $home/.vimrc
 
 log "   .vim/"
 ln_bak $myconfig/files/vim $home/.vim
@@ -126,7 +217,24 @@ ln_bak $myconfig/files/ssh $home/.ssh
 chmod 700 $home/.ssh
 chmod 644 $home/.ssh/id_rsa.pub
 
-die
+###################################################
+### apt packages instalation                    ###
+###################################################
+
+function apt_packages {
+	sudo aptitude --yes update
+	cat $machine/apt_packges.list | xargs sudo aptitude --yes install
+}
+
+
+###################################################
+### misc configs                                ###
+###################################################
+
+log "   allowing core dumps"
+ulimit -c unlimited
+
+
 ###################################################
 ### machine custom script                       ###
 ###################################################

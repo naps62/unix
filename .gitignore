@@ -1,3 +1,6 @@
+# misc
+*.swp
+
 # ssh private key
 files/ssh/id_rsa
 
