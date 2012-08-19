@@ -84,7 +84,7 @@ SETUID 37;41 # file that is setuid (u+s)
 SETGID 30;43 # file that is setgid (g+s)
 
 # this doesn't work on search
-CAPABILITY 30;41 # file with capability
+#CAPABILITY 30;41 # file with capability
 
 STICKY_OTHER_WRITABLE 01;34 # dir that is sticky and other-writable (+t,o+w)
 OTHER_WRITABLE 01;34 # dir that is other-writable (o+w) and not sticky
