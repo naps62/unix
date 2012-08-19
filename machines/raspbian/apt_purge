@@ -1,0 +1,8 @@
+xserver* x11-common x11-utils x11-xkb-utils x11-xserver-utils xarchiver xauth xkb-data xinit
+console-setup lightdm
+libx{composite,cb,cursor,damage,dmcp,ext,font,ft,i,inerama,kbfile,klavier,mu,pm,randr,render,res,t,xf86}*
+lxde* lx{input,menu-data,panel,polkit,randr,session,session-edit,shortcut,task,terminal}
+obconf openbox
+gtk* libgtk*
+alsa*
+nano python-pygame python-tk python3-tk scratch ttf* tsconf

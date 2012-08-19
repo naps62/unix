@@ -11,34 +11,37 @@ export NAPS62_MACHINEDIR
 export PATH=$HOME/.bin:$PATH
 
 #
+# from this point, settings are commented out by default
+# and may be activated by a machine-specific install.sh
+#
+
+#
 # bash colors
 #
 #PS1_COLOR_NAME
 #PS1_COLOR_DIR
-#PS1_COLOR_PROMPT
+#PS1_COLOR_PROMPTU
+#PS1_COLOR_PROMPTR
 #PS1_COLOR_CMD
 #PS1_NAME
 #PS1_DIR
-#PS1_PROMPT
-
-#PS1_COLOR_NAME='\[\033[01;34m\]'   # Blue
-#PS1_COLOR_DIR='\[\033[01;34m\]'    # Blue
-#PS1_COLOR_PROMPT='\[\033[01;34m\]' # Green
-#PS1_COLOR_CMD='\[\033[00m\]'       # White
-#PS1_NAME="\u "
-#PS1_DIR="\W "
-#PS1_PROMPT="\$ "
+#PS1_PROMPT_USER
+#PS1_PROMPT_ROOT
 
 #
 # bash prompt
 #
-PS1='${debian_chroot:+($debian_chroot)}'
-PS1=${PS1}${PS1_COLOR_NAME}${PS1_NAME}${PS1_COLOR_DIR}${PS1_DIR}${PS1_COLOR_PROMPT}${PS1_PROMPT}${PS1_COLOR_CMD}
+if [ `whoami` == "root" ]; then
+	PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTR
+	PS1_PROMPT=$PS1_PROMPT_ROOT
+else
+	PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTU
+	PS1_PROMPT=$PS1_PROMPT_USER
+fi
 
-#
-# from this point, settings are commented out by default
-# and may be activated by a machine-specific install.sh
-#
+PS1='${debian_chroot:+($debian_chroot)}'
+PS1="${PS1}${PS1_COLOR_NAME}${PS1_NAME} ${PS1_COLOR_DIR}${PS1_DIR} ${PS1_COLOR_PROMPT}${PS1_PROMPT}${PS1_COLOR_CMD}"
+
 
 # additional env settings
 #export CC
