@@ -29,6 +29,7 @@ set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 ### ascii art Message Of The Day                ###
 ###################################################
 
+log "generating MOTD"
 sudo sh motd_generator
 
 
