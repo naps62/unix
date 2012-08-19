@@ -240,3 +240,5 @@ ulimit -c unlimited
 ###################################################
 
 . $machine/install.sh
+
+log "all done!"
