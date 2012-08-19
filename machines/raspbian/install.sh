@@ -30,7 +30,7 @@ set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 ###################################################
 
 log "generating MOTD"
-sudo sh $machine/motd_generator
+sh $machine/motd_generator
 
 
 ###################################################
