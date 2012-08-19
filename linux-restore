@@ -178,15 +178,11 @@ log "installing..."
 # this file is machine dependent and is not intended to be changed
 # so there is no problem in generating it instead of hard-creating
 log "   .naps62rc"
-ln_bak $myconfig/files/rc/naps62rc.template $myrc
-set_env 'NAPS62_CONFIGDIR'  "$myconfig"          
-set_env 'NAPS62_RCDIR'      "$myconfig/files/rc" 
-set_env 'NAPS62_MACHINE'    "$machine_name"      
-set_env 'NAPS62_MACHINEDIR' "$machine"           
-#sed -i "s,<configdir>,$myconfig,"      $myrc
-#sed -i "s,<rcdir>,$myconfig/files/rc," $myrc
-#sed -i "s,<machine>,$machine_name,"    $myrc
-#sed -i "s,<machinedir>,$machine,"      $myrc
+cp $myconfig/files/rc/naps62rc.template $myrc
+set_env 'NAPS62_CONFIGDIR'  "$myconfig"
+set_env 'NAPS62_RCDIR'      "$myconfig/files/rc"
+set_env 'NAPS62_MACHINE'    "$machine_name"
+set_env 'NAPS62_MACHINEDIR' "$machine"
 
 log "   .bashrc"
 ln_bak $myconfig/files/rc/bashrc $home/.bashrc
