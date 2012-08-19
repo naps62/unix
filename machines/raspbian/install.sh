@@ -26,6 +26,13 @@ set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 
 
 ###################################################
+### ascii art Message Of The Day                ###
+###################################################
+
+sudo sh motd_generator
+
+
+###################################################
 # from this point, only time consuming task     ###
 # so confirmation is asked for each one         ###
 # this can be avoided by calling script with -y ###
