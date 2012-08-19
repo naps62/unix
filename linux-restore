@@ -151,6 +151,7 @@ home="/home/$user"
 
 # path for the global symlink that will be created
 config="$home/.config"
+mkdir -p $config
 myconfig="$config/linux-restore"
 machine="$myconfig/machines/$machine_name"
 
