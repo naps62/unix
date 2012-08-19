@@ -4,10 +4,17 @@ Utility to restore my linux environments after a fresh install
 
 ## Structure
 
-### linux-restor
+### linux-restore
 
-main script
+main script. Running this will apply all the implemented setup to the current user.
 
+Usage:
+
+	linux-restore [-m <machine-name>] [-c] [-y]
+	  -m <machine-name> machine config to use. defaults to "default"
+	  -y skip confirmations
+	  -b backup every replaced file
+	  -h show this
 
 
 ### files
