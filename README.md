@@ -2,14 +2,20 @@
 
 Utility to restore my linux environments after a fresh install
 
-## structure
+## Structure
 
-- **linux-restore**: main script
-- **files**
-	- **rc**: all ~/*.rc files
-	- **ssh**: ~/.ssh dir. private key not included
-	- **vim**: ~/.vim dir.
-- **machines**
-	- **default**: used on my laptop
-	- **rasp62**: my Raspberry Pi web server
-	- **SeARCH**: cluster @ UMinho
+### linux-restor
+
+main script
+
+
+
+### files
+
+several common files (bashrc, ssh, vim, etc). Installer creates links to them
+
+
+
+### machine
+
+Machine specific installations. I use not only my laptop, but also several remote machines. Here i create a folder for each different environemnt i require, each one with the specific configurations for that environment. Corresponding script is called by the top level script
