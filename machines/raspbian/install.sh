@@ -21,8 +21,8 @@ set_not_env 'PS1_COLOR_PROMPTR' '"\[\033[01;31m\]"' # Red   (root prompt)
 set_not_env 'PS1_COLOR_CMD'     '"\[\033[00m\]"'    # White
 set_not_env 'PS1_NAME'          '"rasp62 "'
 set_not_env 'PS1_DIR'           '"\W"'
-set_not_env 'PS1_PROMPT_USER'   '"\$"'
-set_not_env 'PS1_PROMPT_ROOT'   '"#"'
+set_not_env 'PS1_PROMPT_USER'   '"\$ "'
+set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 
 
 ###################################################

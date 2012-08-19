@@ -26,8 +26,8 @@ set_not_env 'PS1_COLOR_DIR'     '"\[\e[01;34m\]"' # Blue
 set_not_env 'PS1_COLOR_PROMPTU' '"\[\e[01;32m\]"' # Green (user prompt)
 set_not_env 'PS1_COLOR_PROMPTR' '"\[\e[01;31m\]"' # Red   (root prompt)
 set_not_env 'PS1_COLOR_CMD'     '"\[\e[00m\]"'    # White
-set_not_env 'PS1_NAME'          '"\u "'
-set_not_env 'PS1_DIR'           '"\W "'
+set_not_env 'PS1_NAME'          '"\u"'
+set_not_env 'PS1_DIR'           '"\W"'
 set_not_env 'PS1_PROMPT_USER'   '"\$ "'
 set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 

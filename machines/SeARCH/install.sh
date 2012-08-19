@@ -20,7 +20,7 @@ set_not_env 'PS1_COLOR_PROMPTU' '"\[\033[01;32m\]"' # Green (user prompt) no roo
 set_not_env 'PS1_COLOR_CMD'     '"\[\033[00m\]"'    # White
 set_not_env 'PS1_NAME'          '"SeARCH"'
 set_not_env 'PS1_DIR'           '"\W"'
-set_not_env 'PS1_PROMPT_USER'   '"\$"'
+set_not_env 'PS1_PROMPT_USER'   '"\$ "'
 
 log "   setting env vars"
 # set clang as default compiler
