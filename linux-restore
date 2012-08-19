@@ -137,12 +137,6 @@ done
 ### Initial Setup                               ###
 ###################################################
 
-# $1 should be machine_name, otherwise "default" is used
-machine_name="default"
-if [ "$#" -eq 1 ]; then
-	machine_name=$1
-fi
-
 # by default, installs for current user
 user=`whoami`
 
