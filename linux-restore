@@ -236,4 +236,6 @@ ulimit -c unlimited
 
 . $machine/install.sh
 
+source ~/.bashrc
+
 log "all done!"
