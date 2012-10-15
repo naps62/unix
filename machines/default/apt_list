@@ -5,3 +5,6 @@ gnome-do
 latexmk
 curl
 skype
+terminator
+vim
+

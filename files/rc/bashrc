@@ -50,6 +50,6 @@ export	PATH \
 ### rvm                                         ###
 ###################################################
 
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+[[ -s "/home/naps62/.rvm" ]] && . "/home/naps62/.rvm/scripts/rvm"
 
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
