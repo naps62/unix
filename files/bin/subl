@@ -1,1 +1,3 @@
-sublime_text
+#!/bin/sh
+
+sublime_text $@

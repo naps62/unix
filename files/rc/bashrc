@@ -29,27 +29,32 @@ alias gcm='git commit'
 # bash aliases
 alias ..='cd ..'
 
+# rails aliases
+alias rs='rails server'
+alias rd='rails server --debugger'
+alias rc='rails console'
+
 ###################################################
 ### PATH                                        ###
 ###################################################
 
-#PATH=./:/usr/local/cuda/bin:$PATH
+PATH=./:/usr/local/cuda/bin:$PATH
 LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/papi/lib:$LD_LIBRARY_PATH
-CUDASDK_DIR=~/.NVIDIA_GPU_Computing_SDK
+CUDASDK_DIR=/usr/loca/cuda/SDK
 
 export	PATH \
 		LD_LIBRARY_PATH \
 		CUDASDK_DIR
 
 # TODO remover depois da BIC
-#export PATH=~/projects/pi/fv_bic/bin:$PATH
-#export PATH=~/projects/pi/fv_cuda/bin:$PATH
-#export PATH=~/projects/pi/fv_bic/scripts:$PATH
+export PATH=~/projects/pi/fv_bic/bin:$PATH
+export PATH=~/projects/pi/fv_cuda/bin:$PATH
+export PATH=~/projects/pi/fv_bic/scripts:$PATH
 
 ###################################################
 ### rvm                                         ###
 ###################################################
 
-[[ -s "/usr/local/rvm/scripts/rvm" ]] && . "/usr/local/rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-PATH=$PATH:/usr/local/rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

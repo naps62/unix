@@ -74,7 +74,7 @@ op_ask "Run apt install for $machine_name/apt_list?" apt_packages
 
 function rvm {
 	log "   rvm (with rails)"
-	curl -L https://get.rvm.io | sudo bash -s stable --rails
+	curl -L https://get.rvm.io | bash -s stable --rails
 }
 
 op_ask "Install RVM with Ruby on Rails?      " rvm
