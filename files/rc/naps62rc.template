@@ -30,6 +30,29 @@ export PATH=$HOME/.bin:$PATH
 #PS1_PROMPT_USER
 #PS1_PROMPT_ROOT
 
+
+function _git_prompt() {
+  local git_status="`git status -unormal 2>&1`"
+  if ! [[ "$git_status" =~ Not\ a\ git\ repo ]]; then
+    if [[ "$git_status" =~ nothing\ to\ commit ]]; then
+      local ansi=32
+    elif [[ "$git_status" =~ Changes\ not\ staged\ for\ commit ]]; then
+      local ansi=33
+    elif [[ "$git_status" =~ nothing\ added\ to\ commit\ but\ untracked\ files\ present ]]; then
+      local ansi=33
+    elif [[ "$(__git_ps1)" =~ MERGING ]]; then # if there are conflicts
+      local ansi=31
+    else
+      local ansi=33
+    fi
+
+    echo -n "\[\033[01;"$ansi"m\]"
+  fi
+}
+
+PS1_COLOR_GIT="`_git_prompt`"
+
+
 #
 # bash prompt
 #
@@ -44,8 +67,11 @@ fi
 # show change signs in prompt
 export GIT_SHOWDIRTYSTATE=1
 
-PS1='${debian_chroot:+($debian_chroot)}'
-PS1="${PS1} ${PS1_COLOR_DIR}${PS1_DIR} ${PS1_COLOR_PROMPT}${PS1_PROMPT}${PS1_COLOR_CMD}"
+function _prompt_command() {
+  PS1='${debian_chroot:+($debian_chroot)}'
+  PS1="${PS1} ${PS1_COLOR_DIR}${PS1_DIR}`_git_prompt`${PS1_GIT} ${PS1_COLOR_PROMPT}${PS1_PROMPT}${PS1_COLOR_CMD}"
+}
+PROMPT_COMMAND=_prompt_command
 
 
 # additional env settings
