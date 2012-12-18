@@ -39,7 +39,7 @@ alias rc='rails console'
 ###################################################
 
 PATH=./:/usr/local/cuda/bin:$PATH
-LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64:/usr/local/papi/lib:$LD_LIBRARY_PATH
+LD_LIBRARY_PATH=/usr/lib64:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 CUDASDK_DIR=/usr/loca/cuda/SDK
 
 export	PATH \
@@ -50,6 +50,8 @@ export	PATH \
 export PATH=~/projects/pi/fv_bic/bin:$PATH
 export PATH=~/projects/pi/fv_cuda/bin:$PATH
 export PATH=~/projects/pi/fv_bic/scripts:$PATH
+
+export PLAZR_ROOT=/home/naps62/projects/plazr
 
 ###################################################
 ### rvm                                         ###

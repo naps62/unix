@@ -1,3 +1,6 @@
+Host cg
+	Hostname 192.168.94.6
+
 Host rasp62
 	Hostname rasp62
 
