@@ -28,6 +28,8 @@ alias gcm='git commit'
 
 # bash aliases
 alias ..='cd ..'
+alias ..2='cd ../..'
+alias ..3='cd ../../..'
 
 # rails aliases
 alias rs='rails server'
@@ -47,9 +49,10 @@ export	PATH \
 		CUDASDK_DIR
 
 # TODO remover depois da BIC
-export PATH=~/projects/pi/fv_bic/bin:$PATH
-export PATH=~/projects/pi/fv_cuda/bin:$PATH
-export PATH=~/projects/pi/fv_bic/scripts:$PATH
+#export PATH=~/projects/pi/fv_bic/bin:$PATH
+#export PATH=~/projects/pi/fv_cuda/bin:$PATH
+#export PATH=~/projects/pi/fv_bic/scripts:$PATH
+export MSC_PATH=~/projects/msc-thesis
 
 ###################################################
 ### rvm                                         ###
