@@ -44,6 +44,8 @@ PATH=./:/usr/local/cuda/bin:$PATH
 LD_LIBRARY_PATH=/usr/lib64:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
 CUDASDK_DIR=/usr/loca/cuda/SDK
 
+eval "$(/home/naps62/projects/gb/bin/gb init -)"
+
 export	PATH \
 		LD_LIBRARY_PATH \
 		CUDASDK_DIR

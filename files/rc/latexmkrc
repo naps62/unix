@@ -1,5 +1,7 @@
 $pdf_mode        = 1;
 $postscript_mode = 0;
 $dvi_mode        = 0;
+@default_files   = ('main.tex')
+$pdflatex        = 'pdflatex -shell-escape %O %S
 $pdf_previewer   = 'open %S';
 $max_repeat=2;
