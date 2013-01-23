@@ -65,3 +65,6 @@ export PLAZR_ROOT=/home/naps62/projects/plazr
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PLAZR_ROOT=/home/naps62/projects/plazr/production
+
