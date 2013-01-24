@@ -2,8 +2,11 @@ $pdf_mode        = 1;
 $postscript_mode = 0;
 $dvi_mode        = 0;
 @default_files   = ('main.tex');
-$aux_dir         = 'output';
-$out_dir         = 'output';
-$pdflatex        = 'mkdir -p output; pdflatex -shell-escape %O %S';
-$pdf_previewer   = 'open %S';
+$pdflatex        = 'rubber --pdf %S';
+$pdf_previewer   = 'open %S 2> /dev/null';
 $max_repeat=2;
+
+# without rubber
+#$aux_dir         = 'output';
+#$out_dir         = 'output';
+#$pdflatex        = 'mkdir -p output; pdflatex -shell-escape %O %S';
