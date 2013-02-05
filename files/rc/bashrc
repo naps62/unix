@@ -21,6 +21,9 @@ alias halt='sudo poweroff'
 alias apt='sudo aptitude'
 
 # git aliases
+alias g='git'
+alias r='rails'
+
 alias gst='git status'
 alias gpl='git pull'
 alias gps='git push'

@@ -195,6 +195,9 @@ ln_bak $myconfig/files/rc/bashrc $home/.bashrc
 log "   .vimrc"
 ln_bak $myconfig/files/rc/vimrc $home/.vimrc
 
+log "   .gitconfig"
+ln_bak $myconfig/files/rc/gitconfig $home/.gitconfig
+
 log "   .vim/"
 ln_bak $myconfig/files/vim $home/.vim
 
@@ -225,15 +228,15 @@ function apt_packages {
 log "   allowing core dumps"
 ulimit -c unlimited
 
-log "   configuring git globals and alias"
-git config --global user.name 'Miguel Palhas'
-git config --global user.email 'mpalhas@gmail.com'
+#log "   configuring git globals and alias"
+#git config --global user.name 'Miguel Palhas'
+#git config --global user.email 'mpalhas@gmail.com'
 
-log "   git configuration"
-git config --global alias.lg \
-	"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-git config --global color.ui
-git config --global core.editor vim
+#log "   git configuration"
+#git config --global alias.lg \
+#	"log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+#git config --global color.ui
+#git config --global core.editor vim
 
 
 

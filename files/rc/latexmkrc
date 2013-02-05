@@ -3,7 +3,7 @@ $postscript_mode = 0;
 $dvi_mode        = 0;
 @default_files   = ('main.tex');
 $pdflatex        = 'rubber -c "setlist arguments --shell-escape" --force --pdf %S';
-$pdf_previewer   = 'open %S 2> /dev/null';
+$pdf_previewer   = 'open %S 2> /dev/null > /dev/null';
 $max_repeat=2;
 
 # without rubber
