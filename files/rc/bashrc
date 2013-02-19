@@ -70,4 +70,5 @@ export PLAZR_ROOT=/home/naps62/projects/plazr
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export PLAZR_ROOT=/home/naps62/projects/plazr/production
+export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
 
