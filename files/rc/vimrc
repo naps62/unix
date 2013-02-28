@@ -219,7 +219,7 @@ set listchars=tab:>-,eol:$
 
 " Use the same symbols as TextMate for tabstopts and EOLs
 " TODO test this
-set listchars=tab:▸\ ,eol:¬
+" set listchars=tab:▸\ ,eol:¬
 
 "foldend
 

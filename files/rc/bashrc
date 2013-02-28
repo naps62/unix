@@ -8,6 +8,8 @@
 # my custom env settings
 . ~/.naps62rc
 
+. ~/.git-prompt.sh
+
 # bash_default has the commands from the default bashrc (taken from Mint Katya)
 . $NAPS62_RCDIR/bash_default
 
@@ -55,7 +57,9 @@ function append_dir {
 # path
 append_dir PATH $HOME/.rvm/bin
 append_dir PATH /usr/local/cuda/bin
+append_dir PATH /share/apps/git/bin
 append_dir PATH ~/.bin
+append_dir PATH ~/bin
 append_dir PATH .
 
 # ld_library_path
@@ -64,5 +68,8 @@ append_dir LD_LIBRARY_PATH /usr/local/cuda/lib
 append_dir LD_LIBRARY_PATH /usr/local/cuda/lib64
 append_dir LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
 append_dir LD_LIBRARY_PATH /usr/lib64
+append_dir LD_LIBRARY_PATH ~/apps/boost/lib
+append_dir LD_LIBRARY_PATH ~/apps/gcc/lib
 
+export BOOST_ROOT=/home/cpd19808/apps/boost/
 export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
