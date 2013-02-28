@@ -40,35 +40,29 @@ alias rd='rails server --debugger'
 alias rc='rails console'
 
 ###################################################
-### PATH                                        ###
+### ENV                                         ###
 ###################################################
 
-PATH=./:/home/naps62/.bin:/usr/local/cuda/bin:$PATH
-LD_LIBRARY_PATH=/usr/lib64:/usr/lib/x86_64-linux-gnu:/usr/local/cuda/lib64:/usr/local/cuda/lib:/usr/local/cuda/extras/CUPTI/lib64:$LD_LIBRARY_PATH
-CUDASDK_DIR=/usr/loca/cuda/SDK
+function append_dir {
+  var=$1
+  val=$2
+  export $var=$val:${!var}
+}
 
-eval "$(/home/naps62/projects/gb/bin/gb init -)"
-
-export	PATH \
-		LD_LIBRARY_PATH \
-		CUDASDK_DIR
-
-# TODO remover depois da BIC
-#export PATH=~/projects/pi/fv_bic/bin:$PATH
-#export PATH=~/projects/pi/fv_cuda/bin:$PATH
-#export PATH=~/projects/pi/fv_bic/scripts:$PATH
-export MSC_PATH=~/projects/msc-thesis
-
-export PLAZR_ROOT=/home/naps62/projects/plazr
-
-###################################################
-### rvm                                         ###
-###################################################
-
+# rvm
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+# path
+append_dir PATH $HOME/.rvm/bin
+append_dir PATH /usr/local/cuda/bin
+append_dir PATH ~/.bin
+append_dir PATH .
 
-export PLAZR_ROOT=/home/naps62/projects/plazr/production
+# ld_library_path
+append_dir LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64
+append_dir LD_LIBRARY_PATH /usr/local/cuda/lib
+append_dir LD_LIBRARY_PATH /usr/local/cuda/lib64
+append_dir LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
+append_dir LD_LIBRARY_PATH /usr/lib64
+
 export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
-
