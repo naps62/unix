@@ -198,6 +198,9 @@ ln_bak $myconfig/files/rc/vimrc $home/.vimrc
 log "   .gitconfig"
 ln_bak $myconfig/files/rc/gitconfig $home/.gitconfig
 
+log "   .gemrc"
+ln_bak $myconfig/files/rc/gemrc $home/.gemrc
+
 log "   .vim/"
 ln_bak $myconfig/files/vim $home/.vim
 

@@ -35,8 +35,8 @@ set_not_env 'PS1_PROMPT_ROOT'   '"# "'
 
 log "   setting env vars"
 # set clang as default compiler
-set_env 'CC'  'clang'
-set_env 'CXX' 'clang++'
+#set_env 'CC'  'clang'
+#set_env 'CXX' 'clang++'
 
 
 ###################################################
