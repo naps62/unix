@@ -8,7 +8,7 @@
 # my custom env settings
 . ~/.naps62rc
 
-. ~/.git-prompt.sh
+[ -f ~/.git-prompt.sh ] && . ~/.git-prompt.sh
 
 # bash_default has the commands from the default bashrc (taken from Mint Katya)
 . $NAPS62_RCDIR/bash_default
@@ -51,8 +51,6 @@ function append_dir {
   export $var=$val:${!var}
 }
 
-# rvm
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
 # path
 append_dir PATH $HOME/.rvm/bin
@@ -67,15 +65,18 @@ append_dir LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64
 append_dir LD_LIBRARY_PATH /usr/local/cuda/lib
 append_dir LD_LIBRARY_PATH /usr/local/cuda/lib64
 append_dir LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
-append_dir LD_LIBRARY_PATH /usr/local/boost/current/lib
 append_dir LD_LIBRARY_PATH /usr/lib64
-append_dir LD_LIBRARY_PATH ~/apps/boost/lib
-append_dir LD_LIBRARY_PATH ~/apps/gcc/lib
+append_dir LD_LIBRARY_PATH /usr/local/lib
 
-# c_include_path
-append_dir C_INCLUDE_PATH /usr/local/boost/current/include
+# rvm
+append_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
-append_dir CPLUS_INCLUDE_PATH /usr/local/boost/curent/include
-
-export BOOST_ROOT=/usr/local/boost/current
-export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
+# override git to prevent pull
+git () {
+	if [[ "$*" =~ $(echo '\bpull\b') ]]; then
+		echo "Put a \$ in the jar, use fetch/rebase, and go f*** yourself, please"
+	else
+		command git "$@"
+	fi
+}
