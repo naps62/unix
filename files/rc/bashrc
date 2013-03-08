@@ -77,5 +77,5 @@ append_dir C_INCLUDE_PATH /usr/local/boost/current/include
 
 append_dir CPLUS_INCLUDE_PATH /usr/local/boost/curent/include
 
-export BOOST_ROOT=/home/cpd19808/apps/boost/
+export BOOST_ROOT=/usr/local/boost/current
 export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
