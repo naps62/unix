@@ -67,9 +67,15 @@ append_dir LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64
 append_dir LD_LIBRARY_PATH /usr/local/cuda/lib
 append_dir LD_LIBRARY_PATH /usr/local/cuda/lib64
 append_dir LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
+append_dir LD_LIBRARY_PATH /usr/local/boost/current/lib
 append_dir LD_LIBRARY_PATH /usr/lib64
 append_dir LD_LIBRARY_PATH ~/apps/boost/lib
 append_dir LD_LIBRARY_PATH ~/apps/gcc/lib
+
+# c_include_path
+append_dir C_INCLUDE_PATH /usr/local/boost/current/include
+
+append_dir CPLUS_INCLUDE_PATH /usr/local/boost/curent/include
 
 export BOOST_ROOT=/home/cpd19808/apps/boost/
 export COACHME_APP_ID=4c6d38fcaf5b50282ff53752652baf8d3de8bf57
