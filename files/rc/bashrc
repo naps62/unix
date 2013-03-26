@@ -74,7 +74,7 @@ append_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
 
 # override git to prevent pull
 git () {
-	if [[ "$*" =~ $(echo '\bpull\b') ]]; then
+	if [[ "git $*" =~ $(echo 'git[[:space:]]+pull') ]]; then
 		echo "Put a \$ in the jar, use fetch/rebase, and go f*** yourself, please"
 	else
 		command git "$@"
