@@ -1,34 +1,5 @@
-# Auto generated. Do not edit
+#!/bin/bash
 
-# this section is to be sed'ed
-# adding for each var the desired value
-export NAPS62_CONFIGDIR=/home/cpd19808/.config/linux-restore
-export NAPS62_RCDIR=/home/cpd19808/.config/linux-restore/files/rc
-export NAPS62_MACHINE=default
-export NAPS62_MACHINEDIR=/home/cpd19808/.config/linux-restore/machines/default
-
-# add ~/.bin to PATH
-export PATH=$HOME/.bin:$PATH
-
-#
-# from this point, settings are commented out by default
-# and may be activated by a machine-specific install.sh
-#
-
-#
-# bash colors
-#
-PS1_COLOR_NAME="\[\e[01;34m\]"
-PS1_COLOR_DIR="\[\e[01;34m\]"
-PS1_COLOR_PROMPTU="\[\e[01;32m\]"
-PS1_COLOR_PROMPTR="\[\e[01;31m\]"
-PS1_COLOR_CMD="\[\e[00m\]"
-PS1_COLOR_GIT="\[\033[01;33m\]"
-PS1_NAME="\u"
-PS1_DIR="\W"
-PS1_GIT="\$(__git_ps1)"
-PS1_PROMPT_USER="\$ "
-PS1_PROMPT_ROOT="# "
 
 
 function _git_prompt() {
@@ -52,18 +23,28 @@ function _git_prompt() {
   fi
 }
 
+PS1_COLOR_NAME="\[\e[01;34m\]"
+PS1_COLOR_DIR="\[\e[01;34m\]"
+PS1_COLOR_PROMPTUSER="\[\e[01;32m\]"
+PS1_COLOR_PROMPTROOT="\[\e[01;31m\]"
+PS1_COLOR_CMD="\[\e[00m\]"
+PS1_COLOR_GIT="\[\033[01;33m\]"
+PS1_NAME="\u"
+PS1_DIR="\W"
+PS1_GIT="\$(__git_ps1)"
+PS1_PROMPT_USER="\$ "
+PS1_PROMPT_ROOT="# "
 PS1_COLOR_GIT="`_git_prompt`"
-
 
 #
 # bash prompt
 #
 if [ `whoami` == "root" ]; then
-	PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTR
-	PS1_PROMPT=$PS1_PROMPT_ROOT
+  PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTROOT
+  PS1_PROMPT=$PS1_PROMPT_ROOT
 else
-	PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTU
-	PS1_PROMPT=$PS1_PROMPT_USER
+  PS1_COLOR_PROMPT=$PS1_COLOR_PROMPTUSER
+  PS1_PROMPT=$PS1_PROMPT_USER
 fi
 
 # show change signs in prompt

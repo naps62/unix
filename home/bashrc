@@ -1,0 +1,18 @@
+#!/bin/bash
+
+export NAPS62_CONFDIR=$HOME/.config/my-unix
+
+function bash_reload {
+  source ${NAPS62_CONFDIR}/files/bash/defaults
+  source ${NAPS62_CONFDIR}/files/bash/history
+  source ${NAPS62_CONFDIR}/files/bash/env
+  source ${NAPS62_CONFDIR}/files/bash/cmds
+  source ${NAPS62_CONFDIR}/files/bash/aliases
+
+  # interactive-only stuff
+  [ -z "$PS1" ] && return
+  source ${NAPS62_CONFDIR}/files/bash/colors
+  source ${NAPS62_CONFDIR}/files/bash/ps1
+}
+
+bash_reload

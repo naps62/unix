@@ -1,0 +1,10 @@
+#!/bin/bash
+
+export HISTCONTROL=ignoredups:ignorespace
+export HISTFILE=~/.bash_history.`hostname`
+export HISTTIMEFORMAT='%d-%b-%Y %T '
+export HISTIGNORE="history:pwd:ls:"
+export HISTSIZE=5000
+export HISTFILESIZE=2000
+
+shopt -s histappend

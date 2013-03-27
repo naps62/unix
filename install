@@ -1,0 +1,177 @@
+#!/bin/bash
+
+###################################################
+### helper functions                            ###
+###################################################
+
+function usage {
+  cat <<EOF
+linux-restore [-m <machine-name>] [-b] [-y]
+
+   -m <machine-name> machine config to use. defaults to "default"
+   -y skip confirmations
+   -b backup every replaced file
+   -h show this
+EOF
+
+}
+
+function die {
+    echo >&2 "$@"
+    exit 1
+}
+
+# currently just an alias to `echo`
+function log {
+  echo "$@"
+}
+
+# creates a symlink backing up original dest file if it exists
+function make_ln {
+  src=$1
+  dst=$2
+  # backup current file if exists
+  if [ -e $dst ] || [ -L $dst ]; then
+    rm -rf $dst.bak
+    if ! $clean; then
+      mv $dst $dst.bak
+    else
+      rm -rf $dst
+    fi
+  fi
+
+  # create link
+  ln -s $src $dst
+}
+
+# asks for confirmation on a task. executes function if positive
+function op_ask {
+  prompt=$1
+  function=$2
+
+  yes=false
+
+  if ! $force_yes; then
+    # read arg
+    op="dummy"
+    until [[ $op =~ ^[yYnN]$ ]]; do
+      read -p "$1 [y/n] " op
+    done
+
+    # check confirmation and exec function
+    if [[ $op =~ ^[yY]$ ]]; then
+      $function
+    fi
+  else
+    yes=true
+  fi
+
+  if $yes; then
+    $function
+  fi
+}
+
+###################################################
+### Parse Args                                  ###
+###################################################
+
+# argument string for getopts
+opts="hm:by"
+
+machine_name="default"
+force_yes=false
+clean=true
+
+while getopts $opts option; do
+  case $option in
+    m)
+      machine_name=$OPTARG
+      ;;
+    b)
+      clean=false
+     ;;
+    y)
+      clean=false
+      force_yes=true
+      ;;
+    h)
+      usage
+      exit
+      ;;
+    ?)
+      usage
+      die "error: invalid argument $OPTARG"
+      ;;
+  esac
+done
+
+
+###################################################
+### Initial Setup                               ###
+###################################################
+
+# path for the global symlink that will be created
+config="$HOME/.config"
+mkdir -p $config
+myunix="$config/my-unix"
+machine="$myunix/machines/$machine_name"
+
+# absolute path to this script
+abspath="$(cd "${0%/*}" 2>/dev/null; echo "$PWD")"
+
+make_ln $abspath $myunix
+
+echo "installing..."
+
+###################################################
+### home sym links                              ###
+###################################################
+
+for file in $(ls $myunix/home); do
+  echo "   ${file}"
+  make_ln $myunix/home/$file $HOME/.$file
+done
+
+# fix ssh dir permissions
+chmod 700 $HOME/.ssh
+chmod 644 $HOME/.ssh/id_rsa.pub
+
+###################################################
+### machine custom script                       ###
+###################################################
+
+function apt_purge {
+  echo "   purging unused packages"
+  cat $machine/apt_purge | xargs sudo apt-get --yes purge
+  sudo apt-get --yes autoremove
+  sudo apt-get --yes autoclean
+  sudo apt-get --yes clean
+}
+
+function apt_update {
+  echo "   apt update"
+  sudo apt-get update
+  echo "   apt upgrade"
+  sudo apt-get upgrade
+  echo "   apt dist-upgrade"
+  sudo apt-get dist-upgrade
+}
+
+function apt_install {
+  echo "   apt package install"
+  cat $machine/apt_install | xargs sudo apt-get --yes install
+}
+
+function rvm {
+  log "   rvm"
+  curl -L https://get.rvm.io | bash -s stable --ruby
+}
+
+echo -e "\nSetting up machine-specifics using $machine"
+source $machine/install.sh
+
+###################################################
+### finalize                                    ###
+###################################################
+source $home/.bashrc
+log "all done!"

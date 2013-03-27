@@ -5,5 +5,5 @@
 files/ssh/id_rsa
 
 # vim tmp files
-files/vim/undo
-files/vim/backup
+home/vim/undo/*
+home/vim/backup/*
