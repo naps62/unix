@@ -1,2 +1,0 @@
-supertab.vba: call delete('/home/naps62/.vim/doc/supertab.txt')|call delete('/home/naps62/.vim/plugin/supertab.vim')
-markdown-1.2.2.vba: call delete('/home/naps62/.vim/ftdetect/markdown.vim')|call delete('/home/naps62/.vim/snippets/markdown.snippets')|call delete('/home/naps62/.vim/syntax/markdown.vim')
