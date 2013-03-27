@@ -173,5 +173,5 @@ source $machine/install.sh
 ###################################################
 ### finalize                                    ###
 ###################################################
-source $home/.bashrc
+source $HOME/.bashrc
 log "all done!"
