@@ -1,0 +1,72 @@
+#!/bin/bash
+
+# sets the environment to use a proxy
+# must be used together with a 'source' alias so the current shell also gets the variables set
+
+function show_var () {
+  var=$1
+  full_var="${1}_PROXY"
+  val=${!full_var}
+  echo "${var}: ${val}"
+}
+
+function list () {
+  show_var HTTP
+  show_var HTTPS
+  show_var FTP
+  show_var SOCKS
+}
+#   if [ "$HTTP_PROXY" ]; then
+#     echo "HTTP:  $HTTP_PROXY";
+#   else
+#     echo "HTTP:  (none)";
+#   fi;
+
+#   if [ "$HTTPS_PROXY" ];
+#   then
+#     echo "HTTPS: $HTTPS_PROXY";
+#   else
+#     echo "HTTPS: (none)";
+#   fi;
+
+#   if [ "$FTP_PROXY" ];
+#   then
+#     echo "FTP:   $FTP_PROXY";
+#   else
+#     echo "FTP:   (none)";
+#   fi;
+
+#   if [ "$SOCKS_PROXY" ];
+#   then
+#     echo "SOCKS: $SOCKS_PROXY";
+#   else
+#     echo "SOCKS: (none)";
+#   fi;
+# }
+
+case "$1" in
+di)
+  export HTTP_PROXY="http://proxy.di.uminho.pt:3128"
+  export HTTPS_PROXY="https://proxy.di.uminho.pt:3128"
+  export FTP_PROXY="ftp://proxy.di.uminho.pt:3128"
+  export SOCKS_PROXY="socks://socks.di.uminho.pt:1080"
+  ;;
+um)
+  export HTTP_PROXY="http://proxy.uminho.pt:3128"
+  export HTTPS_PROXY="https://proxy.uminho.pt:3128"
+  export FTP_PROXY="ftp://proxy.uminho.pt:3128"
+  export SOCKS_PROXY="socks://socks.uminho.pt:1080"
+  ;;
+"-l")
+  ;;
+none)
+  unset HTTP_PROXY
+  unset HTTPS_PROXY
+  unset FTP_PROXY
+  unset SOCKS_PROXY
+  ;;
+*)
+  ;;
+esac
+
+list

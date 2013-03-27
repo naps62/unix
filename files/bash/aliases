@@ -18,6 +18,7 @@ alias gps='git push'
 alias gcm='git commit'
 
 # cd
+alias cd='cdls'
 alias ..='cd ..'
 alias ..2='cd ../..'
 alias ..3='cd ../../..'
@@ -33,7 +34,11 @@ alias egrep='egrep --color=always'
 # ls
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
+alias lla='la -AlF'
+
 
 # alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
+
+# proxy
+alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
