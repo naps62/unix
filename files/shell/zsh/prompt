@@ -22,6 +22,6 @@ prompt_char () {
   git branch >/dev/null 2>/dev/null && echo '±' && return
 }
 
+export ZSH_THEME_GIT_PROMPT_NOCACHE=1
 PROMPT='%{$fg_bold[cyan]%}%c%{$fg_bold[blue]%} %{$fg_bold[blue]%}%# %{$reset_color%}'
-RPROMPT='%{$fg_bold[blue]%} $(git_prompt_info)$(prompt_char)%{$reset_color%}'
 RPROMPT='%{$fg_bold[blue]%}$(repo_name)%{$reset_color%}$(git_super_status)%{$reset_color%}'
