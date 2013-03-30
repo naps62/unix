@@ -37,7 +37,6 @@ function chpwd_update_git_vars() {
 
 function update_current_git_vars() {
     unset __CURRENT_GIT_STATUS
-
     local gitstatus="$__GIT_PROMPT_DIR/gitstatus.py"
     _GIT_STATUS=`python ${gitstatus}`
     __CURRENT_GIT_STATUS=("${(@f)_GIT_STATUS}")
