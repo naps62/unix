@@ -1,9 +1,10 @@
 #!/bin/bash
 
-function env_dir {
+env_dir() {
   var=$1
   val=$2
-  export $var=$val:${!var}
+  eval old=\$$var
+  export $var=$val:$old
 }
 
 # path

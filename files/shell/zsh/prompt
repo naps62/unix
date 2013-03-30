@@ -1,0 +1,12 @@
+#!/usr/bin/env zsh
+
+# zsh-git-prompt, by olivierverdier @ github
+source $NAPS62_CONFDIR/files/shell/zsh/git_prompt/zsh-git-prompt.sh
+
+prompt_char () {
+  git branch >/dev/null 2>/dev/null && echo '±' && return
+}
+
+PROMPT='%{$fg_bold[cyan]%}%c%{$fg_bold[blue]%} %{$fg_bold[blue]%}%# %{$reset_color%}'
+RPROMPT='%{$fg_bold[blue]%} $(git_prompt_info)$(prompt_char)%{$reset_color%}'
+RPROMPT='$(git_super_status)'

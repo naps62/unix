@@ -7,3 +7,6 @@ files/ssh/id_rsa
 # vim tmp files
 home/vim/undo/*
 home/vim/backup/*
+
+# oh my zsh
+oh-my-zsh.install.sh

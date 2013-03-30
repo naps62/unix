@@ -1,14 +1,15 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 ###################################################
 ### helper functions                            ###
 ###################################################
 
-function usage {
+usage () {
   cat <<EOF
 linux-restore [-m <machine-name>] [-b] [-y]
 
-   -m <machine-name> machine config to use. defaults to "default"
+   -m <machine-name> machine config to use. (default* | labcg | SeARCH | raspbian)
+   -s <shell-name> shell to use (zsh* | bash)
    -y skip confirmations
    -b backup every replaced file
    -h show this
@@ -16,18 +17,18 @@ EOF
 
 }
 
-function die {
+die () {
     echo >&2 "$@"
     exit 1
 }
 
 # currently just an alias to `echo`
-function log {
+log () {
   echo "$@"
 }
 
 # creates a symlink backing up original dest file if it exists
-function make_ln {
+make_ln () {
   src=$1
   dst=$2
   # backup current file if exists
@@ -45,7 +46,7 @@ function make_ln {
 }
 
 # asks for confirmation on a task. executes function if positive
-function op_ask {
+op_ask () {
   prompt=$1
   function=$2
 
@@ -76,9 +77,10 @@ function op_ask {
 ###################################################
 
 # argument string for getopts
-opts="hm:by"
+opts="hm:s:by"
 
 machine_name="default"
+shell_name="zsh"
 force_yes=false
 clean=true
 
@@ -86,6 +88,9 @@ while getopts $opts option; do
   case $option in
     m)
       machine_name=$OPTARG
+      ;;
+    s)
+      shell_name=$OPTARG
       ;;
     b)
       clean=false
@@ -124,6 +129,17 @@ make_ln $abspath $myunix
 echo "installing..."
 
 ###################################################
+### zsh / oh-my-zshx                            ###
+###################################################
+if [ "$shell_name" == "zsh" ]; then
+  url="https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh"
+  file=oh-my-zsh.install.sh
+  wget –no-check-certificate $url -o /dev/null -O $file
+  chmod +x $file
+  ./$file
+fi
+
+###################################################
 ### home sym links                              ###
 ###################################################
 
@@ -140,7 +156,7 @@ chmod 644 $HOME/.ssh/id_rsa.pub
 ### machine custom script                       ###
 ###################################################
 
-function apt_purge {
+apt_purge () {
   echo "   purging unused packages"
   cat $machine/apt_purge | xargs sudo apt-get --yes purge
   sudo apt-get --yes autoremove
@@ -148,7 +164,7 @@ function apt_purge {
   sudo apt-get --yes clean
 }
 
-function apt_update {
+apt_update () {
   echo "   apt update"
   sudo apt-get update
   echo "   apt upgrade"
@@ -157,12 +173,12 @@ function apt_update {
   sudo apt-get dist-upgrade
 }
 
-function apt_install {
+apt_install () {
   echo "   apt package install"
   cat $machine/apt_install | xargs sudo apt-get --yes install
 }
 
-function rvm {
+rvm () {
   log "   rvm"
   curl -L https://get.rvm.io | bash -s stable --ruby
 }
@@ -173,5 +189,4 @@ source $machine/install.sh
 ###################################################
 ### finalize                                    ###
 ###################################################
-source $HOME/.bashrc
-log "all done!"
+log "all done! restart your terminal to see the changes"

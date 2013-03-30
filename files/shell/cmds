@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # override git to prevent pull
-function git {
+git () {
   if [[ "git $*" =~ $(echo 'git[[:space:]]+pull') ]]; then
     echo "Put a \$ in the jar, use fetch/rebase, and go f*** yourself, please"
   else
@@ -11,7 +11,7 @@ function git {
 
 # cd ls
 # enter dir and immediately show contents
-function cdls {
+cdls () {
   cd $*
   ls
   echo '' # open line for clarity
@@ -19,13 +19,13 @@ function cdls {
 
 # mkcd
 # create a directory structure and jump to the bottom one
-function mkcd {
+mkcd () {
   mkdir $1
   cd $1
 }
 
 # mark
-function mark {
+mark () {
   file=~/.markfile
   [ -f $file ] || touch $file
   if grep "^$1=" $file > /dev/null; then
@@ -38,7 +38,7 @@ function mark {
 }
 
 # goto
-function goto {
+goto () {
   file=~/.markfile
   if [ $# -eq 1 ]; then
     dest=$(grep "^$1=" $file | cut -d= -f2)

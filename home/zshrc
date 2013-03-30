@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh
+
+export NAPS62_CONFDIR=$HOME/.config/my-unix
+export NAPS62_SHELL=zsh
+
+function zsh_reload {
+  source ${NAPS62_CONFDIR}/files/shell/zsh/defaults
+  source ${NAPS62_CONFDIR}/files/shell/env
+  source ${NAPS62_CONFDIR}/files/shell/cmds
+  source ${NAPS62_CONFDIR}/files/shell/zsh/aliases
+
+  source ${NAPS62_CONFDIR}/files/shell/zsh/history
+
+  # interactive-only stuff
+  [[ $- == *i* ]] || return
+  source ${NAPS62_CONFDIR}/files/shell/zsh/prompt
+}
+
+zsh_reload
