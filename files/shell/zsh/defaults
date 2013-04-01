@@ -27,9 +27,6 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git git-extras autojump gem)
 
 source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-#export PATH=/home/naps62/.rvm/gems/ruby-2.0.0-p0/bin:/home/naps62/.rvm/gems/ruby-2.0.0-p0@global/bin:/home/naps62/.rvm/rubies/ruby-2.0.0-p0/bin:/home/naps62/.rvm/bin:/home/naps62/.rvm/bin:.:/home/naps62/bin:/home/naps62/.bin:/share/apps/git/bin:/usr/local/cuda/bin:/home/naps62/.rvm/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games
