@@ -1,0 +1,50 @@
+# Random stuff
+.DS_Store
+*~
+
+# Sublime Text
+*.sublime-workspace
+
+# output
+*.err
+*.out
+*.log
+*.tmp
+
+# Latex
+_inputs.tex
+_sections.tex
+_appendixes.tex
+bash.out
+main-blx.bib
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.bcf
+*.dvi
+*.fdb_latexmk
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lot
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.snm
+*.synctex.gz
+*.toc
+*.vrb
+*.maf
+*.mtc
+*.mtc0
+*.fls
+*.nls
