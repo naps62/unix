@@ -14,7 +14,7 @@ git () {
 cdls () {
   cd $*
   ls
-  echo '' # open line for clarity
+  #echo '' # open line for clarity
 }
 
 # mkcd

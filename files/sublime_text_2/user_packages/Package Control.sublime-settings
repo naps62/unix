@@ -1,0 +1,18 @@
+{
+	"installed_packages":
+	[
+		"AutoFileName",
+		"BracketHighlighter",
+		"CoffeeScript",
+		"CTags",
+		"Cucumber",
+		"DetectSyntax",
+		"Emmet",
+		"Package Control",
+		"ruby-slim.tmbundle",
+		"Sass",
+		"SublimeCodeIntel",
+		"SublimeLinter",
+		"Syntax Highlighting for Sass"
+	]
+}
