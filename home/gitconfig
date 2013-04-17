@@ -10,6 +10,7 @@
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 [core]
 	editor = vim
+	excludefiles = /home/naps62/.gitignore_global
 [color]
 	ui = true
 [push]
