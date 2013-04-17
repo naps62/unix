@@ -9,6 +9,7 @@ alias open='xdg-open'
 # one-char aliases
 alias g='git'
 alias r='rails'
+alias z='zeus'
 alias o='open'
 
 # git

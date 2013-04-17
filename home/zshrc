@@ -16,8 +16,7 @@ function zsh_reload {
   source ${NAPS62_CONFDIR}/files/shell/zsh/prompt
 }
 
-export COINBASE_API_KEY=c6b434d42c4be78dc0badb9e5a2faf0a1373abf318f1381d6382741a01f3c98d
-export UPLAY_DEV_MAIL_USERNAME='uplay.dev@gmail.com'
-export UPLAY_DEV_MAIL_PASSWORD='baterpunho'
+export COINBASE_API_KEY_development=c6b434d42c4be78dc0badb9e5a2faf0a1373abf318f1381d6382741a01f3c98d
+export COINBASE_API_KEY_production=9d21b2e9b74536ec52e63b0a4ca4a362c6ba03ef78f0cb16029f73f1df83ea6b
 
 zsh_reload

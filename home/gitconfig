@@ -4,9 +4,13 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	conflicts = !git ls-files -u | cut -f 2 | sort -u
-	ps = push
-	ci = commit
-	lc = log ORIG_HEAD.. --stat --no-merges
+	ps  = push
+	ci  = commit
+	co  = checkout
+	s   = status
+	rb  = rebase
+	rbc = rebase --continue
+	lc  = log ORIG_HEAD.. --stat --no-merges
 	new = !sh -c 'git log $1@{1}..$1@{0} "$@"'
 [core]
 	editor = vim
