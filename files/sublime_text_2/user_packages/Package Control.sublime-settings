@@ -2,17 +2,31 @@
 	"installed_packages":
 	[
 		"AutoFileName",
+		"BeautifyRuby",
 		"BracketHighlighter",
 		"CoffeeScript",
+		"Cscope",
 		"CTags",
 		"Cucumber",
+		"CUDA C++",
 		"DetectSyntax",
 		"Emmet",
+		"ERB Insert and Toggle Commands",
+		"Git",
+		"Haml",
+		"HTML5",
 		"Package Control",
+		"RailsCasts Colour Scheme",
+		"Ruby Slim",
 		"ruby-slim.tmbundle",
+		"RubyTest",
 		"Sass",
+		"SASS Build",
+		"SCSS",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"Syntax Highlighting for Sass"
+		"Syntax Highlighting for Sass",
+		"Tag",
+		"Theme - Soda"
 	]
 }

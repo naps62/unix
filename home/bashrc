@@ -16,4 +16,6 @@ function bash_reload {
   source ${NAPS62_CONFDIR}/files/shell/bash/ps1
 }
 
+export UPLAY_DEV_MAIL_USERNAME='uplay.dev@gmail.com'
+export UPLAY_DEV_MAIL_PASSWORD='baterpunho'
 #bash_reload

@@ -17,5 +17,7 @@ function zsh_reload {
 }
 
 export COINBASE_API_KEY=c6b434d42c4be78dc0badb9e5a2faf0a1373abf318f1381d6382741a01f3c98d
+export UPLAY_DEV_MAIL_USERNAME='uplay.dev@gmail.com'
+export UPLAY_DEV_MAIL_PASSWORD='baterpunho'
 
 zsh_reload
