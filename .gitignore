@@ -7,6 +7,9 @@ files/ssh/id_rsa
 # vim tmp files
 home/vim/undo/*
 home/vim/backup/*
+home/vim/bundle
 
 # oh my zsh
 oh-my-zsh.install.sh
+
+files/sublime_text_2/user_packages/Package Control.last-run

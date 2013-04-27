@@ -137,6 +137,7 @@ if [ "$shell_name" == "zsh" ]; then
   wget –no-check-certificate $url -o /dev/null -O $file
   chmod +x $file
   ./$file
+  rm $file
 fi
 
 ###################################################
@@ -181,6 +182,14 @@ apt_install () {
 rvm () {
   log "   rvm"
   curl -L https://get.rvm.io | bash -s stable --ruby
+}
+
+spf13vim () {
+  log "   spf13-vim"
+  path=$PWD
+  cd ~
+  curl http://j.mp/spf13-vim3 -L -o - | sh
+  cd $path
 }
 
 echo -e "\nSetting up machine-specifics using $machine"

@@ -29,7 +29,8 @@
 		"*.db",
 		".tags",
 		".tags_sorted_by_file",
-		".gemtags"
+		".gemtags",
+		"cscope.*"
 	],
 	"folder_exclude_patterns":
 	[

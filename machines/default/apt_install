@@ -1,10 +1,9 @@
 cmus
-clang
 cmake
 gnome-do
 latexmk
 curl
-skype
 terminator
 vim
+ack-grep
 

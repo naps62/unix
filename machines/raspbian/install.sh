@@ -11,3 +11,4 @@ op_ask "Run apt purge for $machine/apt_purge?" apt_purge
 op_ask "Run apt update/upgrade/dist-upgrade?" apt_update
 op_ask "Run apt install for $machine_name/apt_install?" apt_packages
 op_ask "Install RVM with Ruby on Rails?" rvm
+op_ask "Install/Update spf13-vim?" spf13vim
