@@ -1,9 +1,9 @@
-" .vimrc.local
 " vim: set sw=2 ts=2 sts=2 et foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Overrides {
   set background=light
   let g:spf13_no_autochdir = 1  " don't auto switch current dir to newly opened buffers
+  let g:neocomplcache_disable_auto_complete = 1 " disable autocomplete
 
   set tabstop=2        " TAB character width
   set expandtab        " expand tabs to spaces by default (overriden in some languages)
@@ -12,30 +12,40 @@
   set history=1000     " boost history (20 to 1000)
   set scrolljump=1     " lines to scroll when cursor leaves screen
   set scrolloff=3      " minimum lines to keep above and below cursor
-" }
+
+a" }
 
 " KeyBindings {
+  let mapleader=','
+
   " fix command typos
   nmap ; :
 
-  nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>  " space to disable search highlight
+  "nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>  " space to disable search highlight
   nmap <silent> <leader>n :set hls!<CR>            " press Ctrl-n to toogle search highlight
   nmap <leader>s :set list!<CR>                    " toggle whitespace\s
   nmap <silent> <c-n> :NERDTreeToggle<CR>          " press CTRL-N to enable NERDTree
 
   " move between windows
-  nmap <silent> <C-Right> <c-w>l
-  nmap <silent> <C-Left> <c-w>h
-  nmap <silent> <C-Up> <c-w>k
-  nmap <silent> <C-Down> <c-w>j
+  nmap <C-Right> <c-w>l
+  nmap <C-Left>  <c-w>h
+  nmap <C-Up>    <c-w>k
+  nmap <C-Down>  <c-w>j
+
+  " move between tabs
+  nmap <C-a>  :tabnext<cr>
+  nmap <C-d>  :tabprevious<cr>
+  nmap <C-t>  :tabnew<cr>
+  imap <C-t>  <ESC>:tabnew<cr>
 
   " double TAB to recursively toogle all code folds at current cursor
   nmap <Tab><Tab> zA<CR>
+
 " }
 
 " File type handling {
   " automatically give executable permissions if file begins with #!
-  au BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile> | endif
+  au BufWritePost * if getline(1) =~ "^#!" | silent !chmod +x <afile>
 
   " custom syntax extensions
   au BufNewFile,BufRead *.cu	set ft=cuda

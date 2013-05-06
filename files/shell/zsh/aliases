@@ -37,4 +37,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
 
 # git
-alias git=hub
+# alias git=hub

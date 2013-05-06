@@ -3,6 +3,7 @@
 
 # ssh private key
 files/ssh/id_rsa
+files/api_keys
 
 # vim tmp files
 home/vim/undo/*
