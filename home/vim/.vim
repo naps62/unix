@@ -1,0 +1,1 @@
+/home/naps62/.spf13-vim-3/.vim

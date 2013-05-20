@@ -18,4 +18,6 @@ function zsh_reload {
   source ${NAPS62_CONFDIR}/files/api_keys
 }
 
+export STARPU_NCUDA=1
+
 zsh_reload
