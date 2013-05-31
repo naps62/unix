@@ -24,6 +24,11 @@
   " fix command typos
   nmap ; :
 
+  " Ctrl+S for saving
+  nmap <silent> <C-S> :update<CR>
+  vmap <silent> <C-S> <C-c>:update<CR>
+  imap <silent> <C-S> <C-o>:update<CR>
+
   "nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>  " space to disable search highlight
   nmap <silent> <leader>n :set hls!<CR>            " press Ctrl-n to toogle search highlight
   nmap <leader>s :set list!<CR>                    " toggle whitespace\s
