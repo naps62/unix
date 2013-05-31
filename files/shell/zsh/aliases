@@ -38,3 +38,7 @@ alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
 
 # git
 # alias git=hub
+
+# vim
+# proxy to enable usage of Ctrl-S shortcut
+alias vim="stty stop '' -ixoff ; vim"
