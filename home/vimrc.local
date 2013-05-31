@@ -29,7 +29,17 @@
   vmap <silent> <C-S> <C-c>:update<CR>
   imap <silent> <C-S> <C-o>:update<CR>
 
-  "nmap <silent> <Space> :nohlsearch<Bar>:echo<CR>  " space to disable search highlight
+  " Make
+  nmap <silent> <C-M> :Make<CR>
+
+  " Quickfix
+  nmap <silent> <leader>h :cprevious<CR>
+  nmap <silent> <leader>l :cnext<CR>
+
+  " Tabs
+  nmap <silent> <leader>w :tabclose<CR>
+
+  nmap <silent> <leader><Space> :nohlsearch<Bar>:echo<CR>  " space to disable search highligh
   nmap <silent> <leader>n :set hls!<CR>            " press Ctrl-n to toogle search highlight
   nmap <leader>s :set list!<CR>                    " toggle whitespace\s
   nmap <silent> <c-n> :NERDTreeToggle<CR>          " press CTRL-N to enable NERDTree
@@ -71,8 +81,8 @@
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 " }
 
-" Make {
-  fun! SetMkFile()
+" Make & Quickfix {
+  fun! SetMkfile()
     let filemk = "Makefile"
     let pathmk = "./"
     let depth = 1
@@ -86,5 +96,6 @@
     return "."
   endf
 
-  command! -nargs=* Make tabnew | let $mkpath = SetMkfile() | make <args> -C $mkpath | cwindow 10"
+  command! -nargs=* Make tabnew | let $mkpath = SetMkfile() | silent make <args> -C $mkpath | cwindow 10"
+
 " }
