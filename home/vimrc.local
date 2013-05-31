@@ -1,6 +1,9 @@
 " vim: set sw=2 ts=2 sts=2 et foldmarker={,} foldlevel=0 foldmethod=marker spell:
 
 " Overrides {
+  UnBundle 'myusuf3/numbers.vim'
+  UnBundle 'nathanaelkane/vim-indent-guides'
+
   set background=light
   let g:spf13_no_autochdir = 1  " don't auto switch current dir to newly opened buffers
   let g:neocomplcache_disable_auto_complete = 1 " disable autocomplete
@@ -13,7 +16,7 @@
   set scrolljump=1     " lines to scroll when cursor leaves screen
   set scrolloff=3      " minimum lines to keep above and below cursor
 
-a" }
+" }
 
 " KeyBindings {
   let mapleader=','
@@ -61,4 +64,22 @@ a" }
   autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
   autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
   autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+" }
+
+" Make {
+  fun! SetMkFile()
+    let filemk = "Makefile"
+    let pathmk = "./"
+    let depth = 1
+    while depth < 4
+      if filereadable(pathmk . filemk)
+        return pathmk
+      endif
+      let depth += 1
+      let pathmk = "../" . pathmk
+    endwhile
+    return "."
+  endf
+
+  command! -nargs=* Make tabnew | let $mkpath = SetMkfile() | make <args> -C $mkpath | cwindow 10"
 " }
