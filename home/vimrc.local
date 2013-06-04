@@ -24,6 +24,9 @@
   " fix command typos
   nmap ; :
 
+  " multiple leader options
+  nmap \ <leader>
+
   " Ctrl+S for saving
   nmap <silent> <C-S> :update<CR>
   vmap <silent> <C-S> <C-c>:update<CR>
@@ -51,8 +54,8 @@
   nmap <C-Down>  <c-w>j
 
   " move between tabs
-  nmap <C-a>  :tabnext<cr>
-  nmap <C-d>  :tabprevious<cr>
+  nmap <C-a>  gT
+  nmap <C-d>  gt
   nmap <C-t>  :tabnew<cr>
   imap <C-t>  <ESC>:tabnew<cr>
 
