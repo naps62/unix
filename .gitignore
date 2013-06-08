@@ -2,7 +2,7 @@
 *.swp
 
 # ssh private key
-files/ssh/id_rsa
+home/ssh/id_rsa
 files/api_keys
 home/ssh/id_rsa
 
