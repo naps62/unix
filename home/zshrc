@@ -19,5 +19,6 @@ function zsh_reload {
 }
 
 export STARPU_NCUDA=1
+export STARPU_NOPENCL=0
 
 zsh_reload

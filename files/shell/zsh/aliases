@@ -12,12 +12,6 @@ alias r='rails'
 alias z='zeus'
 alias o='open'
 
-# git
-alias gst='git status'
-alias gpl='git pull'
-alias gps='git push'
-alias gcm='git commit'
-
 # cd
 alias cd='cdls'
 alias ..='cd ..'
