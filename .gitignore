@@ -4,7 +4,6 @@
 # ssh private key
 home/ssh/id_rsa
 files/api_keys
-home/ssh/id_rsa
 
 # vim tmp files
 home/vim/undo/*
