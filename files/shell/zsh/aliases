@@ -8,9 +8,11 @@ alias open='xdg-open'
 
 # one-char aliases
 alias g='git'
-alias r='rails'
-alias z='zeus'
 alias o='open'
+alias v='vim'
+alias m='make'
+alias r='rails'
+alias rk='rake'
 
 # cd
 alias cd='cdls'

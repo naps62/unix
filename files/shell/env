@@ -7,13 +7,17 @@ env_dir() {
   export $var=$val:$old
 }
 
+# rvm
+env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # path
 env_dir PATH $HOME/.rvm/bin
 env_dir PATH /usr/local/cuda/bin
 env_dir PATH /share/apps/git/bin
 env_dir PATH ~/.bin
 env_dir PATH ~/bin
-env_dir PATH .
+env_dir PATH ./bin/
 
 # ld_library_path
 env_dir LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64
@@ -22,7 +26,3 @@ env_dir LD_LIBRARY_PATH /usr/local/cuda/lib64
 env_dir LD_LIBRARY_PATH /usr/lib/x86_64-linux-gnu
 env_dir LD_LIBRARY_PATH /usr/lib64
 env_dir LD_LIBRARY_PATH /usr/local/lib
-
-# rvm
-env_dir PATH $HOME/.rvm/bin # Add RVM to PATH for scripting
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
