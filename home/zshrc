@@ -22,3 +22,5 @@ export STARPU_NCUDA=1
 export STARPU_NOPENCL=0
 
 zsh_reload
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

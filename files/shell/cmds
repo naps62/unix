@@ -1,5 +1,18 @@
 #!/bin/bash
 
+goto_work () {
+  type = "$1"
+  project_name = ls -d $HOME/"$1"/"$2"* | head -n1
+  cd projet_name
+  if [ -f "Gemfile" ]; then
+    vim
+  fi
+}
+
+project () { goto_work "projects" $@; }
+gb      () { goto_work "gb"       $@; }
+uplay   () { goto_work "uplay"    $@; }
+
 # override git to prevent pull
 git () {
   if [[ "git $*" =~ $(echo 'git[[:space:]]+pull') ]]; then
@@ -57,8 +70,7 @@ extract () {
 # mkcd
 # create a directory structure and jump to the bottom one
 mkcd () {
-  mkdir $1
-  cd $1
+  mkdir -p "$1" && cd "$1"
 }
 
 # mark

@@ -20,6 +20,7 @@ repo_name () {
 
 prompt_char () {
   git branch >/dev/null 2>/dev/null && echo '±' && return
+  echo '%#'
 }
 
 case ${SOLARIZED_THEME:-dark} in
@@ -34,5 +35,5 @@ export ZSH_THEME_GIT_PROMPT_NOCACHE=1
 
 PROMPT='
 %{%B%F{green}%}%n %{%B%F{green}%}%{%B%F{blue}%}%~%{%B%F{green}%}%E%{%f%k%b%}
-%{%B%F{blue}%} %#%{%f%k%b%} '
+%{%B%F{blue}%} `prompt_char`%{%f%k%b%} '
 RPROMPT='%{$fg_bold[blue]%}$(repo_name)%{$reset_color%}$(git_super_status)%{$reset_color%}'

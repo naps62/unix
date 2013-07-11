@@ -1,6 +1,7 @@
 # Random stuff
 .DS_Store
 *~
+.ctrlp
 
 # Sublime Text
 *.sublime-workspace

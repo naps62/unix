@@ -7,6 +7,9 @@
   set background=light
   let g:spf13_no_autochdir = 1  " don't auto switch current dir to newly opened buffers
   let g:neocomplcache_disable_auto_complete = 1 " disable autocomplete
+  let g:NERDTreeWinPos = "right"
+
+  let g:ctrlp_root_markers = ['.ctrlp']
 
   set tabstop=2        " TAB character width
   set expandtab        " expand tabs to spaces by default (overriden in some languages)
@@ -71,6 +74,10 @@
   " custom syntax extensions
   au BufNewFile,BufRead *.cu	set ft=cuda
   au BufNewFile,BufRead *.cuh set ft=cuda
+  augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+  augroup END
 
   " fix for vim-latex
   let g:tex_flavor='latex'
