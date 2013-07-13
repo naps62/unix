@@ -15,11 +15,11 @@ ZSH_THEME_GIT_PROMPT_UNTRACKED="…"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg_bold[green]%}✔"
 
 repo_name () {
-  basename $(git remote show -n origin 2>/dev/null | grep Push | cut -d: -f2-) 2>/dev/null
+  basename $(command git remote show -n origin 2>/dev/null | grep Push | cut -d: -f2-) 2>/dev/null
 }
 
 prompt_char () {
-  git branch >/dev/null 2>/dev/null && echo '±' && return
+  command git branch >/dev/null 2>/dev/null && echo '±' && return
   echo '%#'
 }
 

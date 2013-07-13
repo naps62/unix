@@ -141,6 +141,14 @@ if [ "$shell_name" == "zsh" ]; then
 fi
 
 ###################################################
+### auto completions                            ###
+###################################################
+
+mkdir -f $HOME/.oh-my-zsh/completions
+ln -s $myunix/files/shell/zsh/autocomplete/_git $HOME/.oh-my-zsh/completions/_git
+
+
+###################################################
 ### home sym links                              ###
 ###################################################
 

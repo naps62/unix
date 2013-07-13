@@ -6,17 +6,17 @@ alias halt='sudo poweroff'
 alias apt='sudo aptitude'
 alias open='xdg-open'
 
-alias ack='ack-grep'
+alias ack=ack-grep
 
 # one-char aliases
-alias g='git'
-alias t='tig'
-alias o='open'
-alias v='vim'
-alias m='make'
-alias r='rails'
-alias rk='rake'
-alias a='ack'
+alias g=git
+alias t=tig
+alias o=open
+alias v=vim
+alias m=make
+alias r=rails
+alias rk=rake
+alias a=ack
 
 # cd
 alias cd='cdls'
@@ -37,8 +37,4 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 alias proxy='source ${NAPS62_CONFDIR}/home/bin/proxy'
 
 # git
-# alias git=hub
-
-# vim
-# proxy to enable usage of Ctrl-S shortcut
-alias vim="stty stop '' -ixoff ; vim"
+eval "$(hub alias -s)"
