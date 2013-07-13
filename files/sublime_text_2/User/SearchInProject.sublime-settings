@@ -1,0 +1,4 @@
+{
+  "search_in_project_engine": "ack",
+  "search_in_project_Ack_path_to_executable": "ack-grep"
+}

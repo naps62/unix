@@ -1,0 +1,11 @@
+{
+	"installed_packages":
+	[
+		"AdvancedNewFile",
+		"CTags",
+		"CUDA C++",
+		"Git",
+		"Package Control",
+		"SearchInProject"
+	]
+}

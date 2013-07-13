@@ -1,0 +1,15 @@
+[
+  // ack search
+  { "keys": ["alt+f"], "command": "search_in_project" },
+
+  // override nex/previous tab commands
+  { "keys": ["ctrl+tab"],       "command": "next_view" },
+  { "keys": ["ctrl+shift+tab"], "command": "prev_view" },
+  { "keys": ["ctrl+pagedown"],  "command": "next_view_in_stack" },
+  { "keys": ["ctrl+pageup"],    "command": "prev_view_in_stack" },
+
+  // original new file
+  { "keys": ["ctrl+m"], "command": "new_file" },
+  // advanced new file
+  { "keys": ["ctrl+n"], "command": "advanced_new_file" }
+]
