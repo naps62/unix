@@ -14,6 +14,7 @@
 		"*.dll",
 		"*.obj",
 		"*.o",
+		"*.d",
 		"*.a",
 		"*.lib",
 		"*.so",
@@ -30,7 +31,9 @@
 		".tags",
 		".tags_sorted_by_file",
 		".gemtags",
-		"cscope.*"
+		"cscope.*",
+		"*.sublime-project",
+		"*.sublime-workspace"
 	],
 	"folder_exclude_patterns":
 	[

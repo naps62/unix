@@ -1,0 +1,4 @@
+#!/bin/sh
+
+branch=$1
+git branch -d $branch && git push origin :$branch

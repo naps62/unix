@@ -126,7 +126,7 @@ abspath="$(cd "${0%/*}" 2>/dev/null; echo "$PWD")"
 
 make_ln $abspath $myunix
 
-echo "installing..."
+echo "installing..."a
 
 ###################################################
 ### zsh / oh-my-zshx                            ###

@@ -1,11 +1,18 @@
 {
+	"auto_upgrade_last_run": null,
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"CoffeeScript",
 		"CTags",
+		"Cucumber",
 		"CUDA C++",
 		"Git",
+		"Guard",
+		"Markdown Extended",
 		"Package Control",
+		"ruby-slim.tmbundle",
+		"Sass",
 		"SearchInProject"
 	]
 }
