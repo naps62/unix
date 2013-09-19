@@ -3,6 +3,7 @@
 	"installed_packages":
 	[
 		"AdvancedNewFile",
+		"Coffee Formatter",
 		"CoffeeScript",
 		"CTags",
 		"Cucumber",
@@ -13,6 +14,7 @@
 		"Package Control",
 		"ruby-slim.tmbundle",
 		"Sass",
-		"SearchInProject"
+		"SearchInProject",
+		"SFTP"
 	]
 }

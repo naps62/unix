@@ -1,0 +1,7 @@
+if [ ! -d ~/Galaxy\ Nexus ]; then
+	mkdir ~/Galaxy\ Nexus
+fi
+
+mtpfs ~/Galaxy\ Nexus;
+
+open ~/Galaxy\ Nexus

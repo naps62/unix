@@ -6,7 +6,7 @@
 function show_var () {
   var=$1
   full_var="${1}_PROXY"
-  val=${!full_var}
+  #val=${!full_var}
   echo "${var}: ${val}"
 }
 
@@ -45,13 +45,13 @@ function list () {
 # }
 
 case "$1" in
-di)
+"di")
   export HTTP_PROXY="http://proxy.di.uminho.pt:3128"
   export HTTPS_PROXY="https://proxy.di.uminho.pt:3128"
   export FTP_PROXY="ftp://proxy.di.uminho.pt:3128"
   export SOCKS_PROXY="socks://socks.di.uminho.pt:1080"
   ;;
-um)
+"um")
   export HTTP_PROXY="http://proxy.uminho.pt:3128"
   export HTTPS_PROXY="https://proxy.uminho.pt:3128"
   export FTP_PROXY="ftp://proxy.uminho.pt:3128"

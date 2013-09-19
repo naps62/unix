@@ -1,0 +1,5 @@
+fusermount -u ~/Galaxy\ Nexus
+
+if [ -d ~/Galaxy\ Nexus ]; then
+	rmdir ~/Galaxy\ Nexus
+fi

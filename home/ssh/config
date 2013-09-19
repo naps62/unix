@@ -1,3 +1,9 @@
+ServerAliveInterval 30
+
+Host stamp
+  User rbrito
+  Hostname stampede.tacc.utexas.edu
+
 Host cg
 	Hostname 192.168.94.6
 

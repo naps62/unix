@@ -11,5 +11,9 @@
   // original new file
   { "keys": ["ctrl+m"], "command": "new_file" },
   // advanced new file
-  { "keys": ["ctrl+n"], "command": "advanced_new_file" }
+  { "keys": ["ctrl+n"], "command": "advanced_new_file" },
+
+  // create cursors
+  { "keys": ["ctrl+super+up"], "command": "select_lines", "args": {"forward": false} },
+  { "keys": ["ctrl+super+down"], "command": "select_lines", "args": {"forward": true} }
 ]

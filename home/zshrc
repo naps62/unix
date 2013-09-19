@@ -18,9 +18,18 @@ function zsh_reload {
   source ${NAPS62_CONFDIR}/files/api_keys
 }
 
-export STARPU_NCUDA=1
+export STARPU_NCUDA=0
 export STARPU_NOPENCL=0
 
 zsh_reload
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+export PERL_LOCAL_LIB_ROOT="$PERL_LOCAL_LIB_ROOT:/home/naps62/perl5";
+export PERL_MB_OPT="--install_base /home/naps62/perl5";
+export PERL_MM_OPT="INSTALL_BASE=/home/naps62/perl5";
+export PERL5LIB="/home/naps62/perl5/lib/perl5:$PERL5LIB";
+export PATH="/home/naps62/perl5/bin:$PATH";
+
+export GITHUB_LOGIN="naps62"
+export GITHUB_PASSWORD="256291napsgb"
